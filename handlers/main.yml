@@ -1,9 +1,9 @@
 ---
-- name: "restart redis {{ redis_port }}"
+- name: "restart redis"
   service:
     name: "{{ redis_service_name }}"
     state: restarted
-  when: redis_as_service
+  when: redis_as_service and not redis_postpone_start | bool
 
 - name: "restart sentinel {{ redis_sentinel_port }}"
   service:
