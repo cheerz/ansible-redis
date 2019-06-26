@@ -27,6 +27,8 @@ redis_as_service: true
 redis_local_facts: true
 # Service name
 redis_service_name: "redis_{{ redis_port }}"
+# Postpone start/restart of Redis (example: in case of multiple instances)
+redis_postpone_start: false
 
 ## Networking/connection options
 redis_bind: false
