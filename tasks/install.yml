@@ -14,8 +14,7 @@
     chdir: /usr/local/src/redis-{{ redis_version }}
     creates: /usr/local/src/redis-{{ redis_version }}/src/redis-server
   environment:
-    CC: gcc-10
-    CXX: g++-10
+    CC: gcc
   when: not ansible_check_mode
 
 - name: create redis install directory
