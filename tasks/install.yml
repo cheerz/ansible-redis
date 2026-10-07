@@ -16,6 +16,7 @@
   environment:
     CC: gcc-10
     CXX: g++-10
+  when: not ansible_check_mode
 
 - name: create redis install directory
   file:
@@ -62,6 +63,7 @@
   args:
     chdir: /usr/local/src/redis-{{ redis_version }}
     creates: "{{ redis_install_dir }}/bin/redis-server"
+  when: not ansible_check_mode
 
 - name: list redis binaries to add to alternatives
   command: ls -1 {{ redis_install_dir }}/bin
